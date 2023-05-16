@@ -105,3 +105,8 @@ outliers = df[(df['SalePrice'] < lower_bound) | (df['SalePrice'] > upper_bound)]
 # Tratar los valores atípicos
 df_no_outliers = df[(df['SalePrice'] >= lower_bound) & (df['SalePrice'] <= upper_bound)]
 ```
+
+### Actividad
+Es momento de poner en practica lo aprendido, como actividad tenemos que hacer analisis exploratorio de datos al conjunto de datos del titanic.
+
+[Ir a la Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/blob/main/6%29%20Analisis%20Exploratorio%20de%20Datos/Titanic%20-%20Machine%20Learning%20From%20Disaster/README.md)
