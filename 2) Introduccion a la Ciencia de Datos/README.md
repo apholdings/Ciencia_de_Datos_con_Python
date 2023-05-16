@@ -190,3 +190,8 @@ df_merged = pd.concat([df1, df2], axis=1)
 En este código, estamos utilizando un DataFrame de pandas para demostrar las operaciones comunes de limpieza de datos. Primero, creamos un DataFrame con algunos datos faltantes y duplicados. Luego, mostramos cómo eliminar las filas con valores faltantes, cómo llenar los valores faltantes con cero, cómo eliminar los duplicados y cómo cambiar el tipo de datos de una columna a 'int'.
 
 Nota: Como astype(int) no puede manejar los valores NaN, utilizamos fillna(0) antes de cambiar el tipo de datos para asegurarnos de que no haya valores faltantes en la columna.
+
+## Actividad de Ejercicio
+Ahora debemos practicar lo aprendido en un ejemplo de mundo real, empezaremos a trabajar con un set de datos de Kaggle llamado [Titanic: Machine Learning from Disaster](https://www.kaggle.com/datasets/shuofxz/titanic-machine-learning-from-disaster?resource=download) asi que veamos como resolver el ejercicio aqui:
+
+[Ver Codigo Actividad Completa](Titanic%20-Machine%20Learning%20from%20Disaster)
