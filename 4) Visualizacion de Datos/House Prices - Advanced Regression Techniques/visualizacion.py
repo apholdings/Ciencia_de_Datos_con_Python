@@ -41,3 +41,21 @@ plt.figure(figsize=(10, 6))
 plt.title("Superficie del sótano vs Precio de venta")
 sns.scatterplot(x="TotalBsmtSF", y="SalePrice", data=df_train)
 plt.show()
+
+# Gráfico de línea del año de construcción y el precio de venta
+plt.figure(figsize=(12, 6))
+df_train.groupby("YearBuilt")["SalePrice"].median().plot()
+plt.title("Relación entre el año de construcción y el precio de venta")
+plt.show()
+
+# Gráfico de barras del precio de venta por zona
+plt.figure(figsize=(12, 6))
+sns.barplot(x="MSZoning", y="SalePrice", data=df_train)
+plt.title("Distribución de los precios de venta por zona")
+plt.show()
+
+# Gráfico de dispersión del tamaño del primer piso y el precio de venta
+plt.figure(figsize=(12, 6))
+sns.scatterplot(x="1stFlrSF", y="SalePrice", data=df_train)
+plt.title("Relación entre el tamaño del primer piso y el precio de venta")
+plt.show()
