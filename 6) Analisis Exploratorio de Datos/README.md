@@ -42,7 +42,7 @@ for column in df.select_dtypes(include=["object"]).columns:
 
 Ahora, haremos algunos gráficos para entender mejor nuestros datos.
 
-#### Histogramas
+### Histogramas
 Los histogramas son útiles para visualizar la distribución de una variable numérica. Aquí veremos la distribución de los precios de las viviendas.
 ```python
 plt.hist(df['SalePrice'], bins=30, alpha=0.5)
@@ -52,7 +52,7 @@ plt.title('Distribution of Sale Prices')
 plt.show()
 ```
 
-#### Boxplots
+### Boxplots
 Los boxplots nos dan una visión rápida de cómo están distribuidos los datos. Son especialmente útiles para identificar valores atípicos. Veamos un boxplot de los precios de las viviendas.
 ```python
 plt.boxplot(df['SalePrice'])
@@ -61,7 +61,7 @@ plt.title('Boxplot of Sale Price')
 plt.show()
 ```
 
-#### Análisis de correlación
+### Análisis de correlación
 El análisis de correlación nos ayuda a entender cómo están relacionadas entre sí las variables numéricas en nuestro conjunto de datos. Pandas tiene un método muy útil llamado corr() que calcula la correlación entre todas las columnas numéricas del DataFrame.
 ```python
 correlation_matrix = df.corr()
@@ -73,7 +73,7 @@ sns.heatmap(correlation_matrix)
 plt.show()
 ```
 
-#### Estadísticos de resumen y groupby
+### Estadísticos de resumen y groupby
 Pandas tiene muchos métodos útiles para obtener estadísticos de resumen. Por ejemplo, el método describe() proporciona un resumen estadístico de todas las columnas numéricas.
 ```python
 print(df.describe())
@@ -83,7 +83,7 @@ El método groupby() puede ser útil para agrupar los datos por una o más colum
 print(df.groupby('MSZoning')['SalePrice'].mean())
 ```
 
-#### Manejo de valores atípicos
+### Manejo de valores atípicos
 Los valores atípicos pueden distorsionar nuestras estadísticas y modelos, por lo que es importante identificarlos y tratarlos adecuadamente. Una forma común de tratar los valores atípicos es eliminarlos, pero hay que tener cuidado de no eliminar demasiados datos.
 
 Podríamos identificar los valores atípicos en el precio de venta utilizando la regla del rango intercuartil (IQR). Esta regla dice que un valor es un valor atípico si es menor que Q
