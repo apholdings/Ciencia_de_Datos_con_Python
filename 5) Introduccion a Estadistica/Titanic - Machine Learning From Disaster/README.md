@@ -65,3 +65,9 @@ print(f"Desviación estándar de la edad: {std_age}")
 quartiles_age = df['Age'].quantile([0.25, 0.5, 0.75])
 print(f"Cuartiles de la edad:\n{quartiles_age}")
 ```
+
+### Actividad
+
+Ahora que completamos la primera actividad, hagamos lo mismo pero con un conjunto de datos mas complejo.
+
+[Ver Actividad Completa](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/5%29%20Introduccion%20a%20Estadistica/House%20Prices%20-%20Advanced%20Regression%20Techniques)

@@ -159,3 +159,9 @@ results = model.fit()  # Ajustar el modelo a los datos
 
 print(results.summary())  # Imprimir un resumen de los resultados
 ```
+
+### Actividad
+
+Muy bien, ahora pondremos en practica lo aprendido, tenemos que analizar el conjuunuto de datos con el que trabajamos en la semana anterior, esta vez caluclaremos las variables de estadistica que aprendimos en esta semana.
+
+[Ver Actividad Completa](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/5%29%20Introduccion%20a%20Estadistica/Titanic%20-%20Machine%20Learning%20From%20Disaster)
