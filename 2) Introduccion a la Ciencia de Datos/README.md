@@ -77,3 +77,43 @@ plt.show()
 - **R:** Un lenguaje de programación y un entorno de software para el análisis estadístico y la visualización de datos.
 - **SQL:** Un lenguaje de programación utilizado para gestionar y manipular bases de datos.
 - **Jupyter Notebooks:** Una aplicación web de código abierto que permite crear y compartir documentos que contienen código en vivo, ecuaciones, visualizaciones y texto narrativo. Es una herramienta esencial para la ciencia de datos.
+
+## Manipulación de datos con Pandas
+- **Carga de datos:** Lectura de datos desde CSVs, archivos Excel y bases de datos SQL.
+- **Limpieza de datos:** Manejo de datos faltantes, datos duplicados y tipos de datos incorrectos.
+- **Transformación de datos:** Creación de nuevas columnas, agregación de datos, fusión de marcos de datos.
+
+### Carga de Datos con Pandas
+Pandas es increíblemente eficiente para leer una variedad de formatos de datos, incluyendo CSV, Excel y SQL.
+Para leer datos desde estos formatos, Pandas proporciona funciones como read_csv(), read_excel(), y read_sql().
+Una vez leídos, los datos se almacenan en un objeto DataFrame, que es una estructura de datos bidimensional etiquetada con columnas que pueden ser de diferentes tipos.
+``` python
+# Importación de Pandas
+import pandas as pd
+
+# Leer un archivo CSV
+df_csv = pd.read_csv('archivo.csv')
+
+# Leer un archivo Excel
+df_excel = pd.read_excel('archivo.xlsx')
+
+# Leer de una base de datos SQL
+from sqlalchemy import create_engine
+engine = create_engine('sqlite:///database.db')
+df_sql = pd.read_sql('SELECT * FROM tabla', engine)
+```
+
+## Limpieza de Datos con Pandas
+Los datos del mundo real a menudo están llenos de errores, faltantes, duplicados, y pueden tener tipos de datos incorrectos.
+Pandas proporciona funciones eficientes para manejar estos problemas.
+Para tratar con los datos faltantes, Pandas proporciona funciones como dropna(), que elimina las filas o columnas con valores faltantes, y fillna(), que llena los valores faltantes con un valor específico.
+Para tratar con los datos duplicados, Pandas proporciona la función drop_duplicates().
+Para cambiar los tipos de datos de las columnas, Pandas proporciona la función astype().
+[Ver Codigo de Ejemplo](limpieza_de_datos.py)
+
+## Transformación de Datos con Pandas
+Pandas proporciona una gran cantidad de funciones para transformar datos en un DataFrame.
+Podemos crear nuevas columnas a partir de las existentes, utilizando operaciones matemáticas, funciones de string, funciones de fecha y hora, y más.
+La función groupby() permite agregar datos basándose en alguna columna. Por ejemplo, podríamos calcular el promedio de todas las filas que tienen el mismo valor en una columna específica.
+Los DataFrames pueden ser fusionados utilizando funciones como merge() y concat(), similares a las operaciones JOIN en SQL.
+[Ver Codigo de Ejemplo](transformacion_de_datos.py)
