@@ -22,7 +22,7 @@ Esperamos que estén tan emocionados como nosotros por este viaje. ¡Empecemos a
 2. [Introducción a la ciencia de datos](2%29%20Introduccion%20a%20la%20Ciencia%20de%20Datos/README.md)
 3. [Manipulación de datos con Pandas](3%29%20Manipulacion%20de%20Datos%20con%20Pandas/README.md)
 4. [Visualización de datos con Matplotlib y Seaborn](4%29%20Visualizacion%20de%20Datos/README.md)
-5. Introducción a la estadística
+5. [Introducción a la estadística](5%29%20Introduccion%20a%20Estadistica/README.md)
 6. Análisis Exploratorio de Datos (AED)
 7. Ingeniería de Características
 8. Pandas Avanzado
