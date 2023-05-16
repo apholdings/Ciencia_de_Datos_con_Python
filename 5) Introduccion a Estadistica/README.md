@@ -13,21 +13,59 @@ Inferencia estadística: Pruebas de hipótesis, intervalos de confianza.
 ### Estadística Descriptiva: Medidas de tendencia central y variabilidad.
 Las medidas de tendencia central y de variabilidad son componentes fundamentales de la estadística descriptiva. Estas métricas ayudan a describir y comprender los conjuntos de datos al proporcionar información sobre el "centro" del conjunto de datos y cuánto se dispersan los datos alrededor de este "centro".
 
+Supongamos que tenemos el siguiente conjunto de datos:
+```python
+import pandas as pd
+
+data = pd.Series([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 2, 3, 3, 3])
+```
+
 #### Medidas de tendencia central:
 - **Media:** La media es el promedio de un conjunto de números. Se calcula sumando todos los números en el conjunto de datos y dividiendo por la cantidad de números en el conjunto.
+```python
+mean = data.mean()
+print(f"Media: {mean}")
+```
 
 - **Mediana:** La mediana es el valor medio de un conjunto de datos cuando los datos se ordenan de menor a mayor. Si el conjunto de datos tiene un número impar de observaciones, la mediana es el número en el medio. Si hay un número par de observaciones, la mediana es el promedio de los dos números del medio.
+```python
+median = data.median()
+print(f"Mediana: {median}")
+```
 
 - **Moda:** La moda es el valor que aparece con más frecuencia en un conjunto de datos. Un conjunto de datos puede tener una moda (unimodal), más de una moda (bimodal o multimodal) o ninguna moda (no modal).
+```python
+mode = data.mode()
+print(f"Moda: {mode.values}")
+```
 
 #### Medidas de variabilidad (o dispersión):
 - **Rango:** El rango es la diferencia entre el valor máximo y mínimo en un conjunto de datos.
+```python
+range_ = data.max() - data.min()
+print(f"Rango: {range_}")
+```
 
 - **Varianza:** La varianza es una medida de cómo se dispersan los valores en un conjunto de datos alrededor de la media. Se calcula como el promedio de las diferencias al cuadrado entre cada valor del conjunto de datos y la media del conjunto de datos.
+```python
+variance = data.var()
+print(f"Varianza: {variance}")
+```
 
 - **Desviación estándar:** La desviación estándar es la raíz cuadrada de la varianza. Proporciona una medida de dispersión que está en las mismas unidades que los datos.
+```python
+std_dev = data.std()
+print(f"Desviación Estándar: {std_dev}")
+```
 
 - **Cuartiles y percentiles:** Los cuartiles son los tres puntos que dividen el conjunto de datos en cuatro partes iguales. Los percentiles son los 99 puntos que dividen el conjunto de datos en 100 partes iguales.
+```python
+quartiles = data.quantile([0.25, 0.5, 0.75])
+print(f"Cuartiles:\n{quartiles}")
+
+percentiles = data.quantile([i/100 for i in range(1, 101)])
+print(f"Percentiles:\n{percentiles}")
+```
 
 ### Estadística inferencial: Pruebas de hipótesis, valores p.
 
@@ -40,6 +78,33 @@ Además, se plantea una hipótesis alternativa (H1) que representa una afirmaci�
 El valor p es una medida de la evidencia en contra de la hipótesis nula. Proporciona la probabilidad de obtener los resultados observados (o más extremos) si la hipótesis nula es cierta. Un valor p pequeño (generalmente, menos de 0.05) indica fuerte evidencia en contra de la hipótesis nula, por lo que se rechaza la hipótesis nula. 
 
 Un valor p grande (generalmente, más de 0.05) indica evidencia débil en contra de la hipótesis nula, por lo que no se puede rechazar la hipótesis nula.
+
+##### Ejemplo:
+Te mostraré cómo realizar una prueba t de Student para una muestra en Python utilizando la biblioteca SciPy. La prueba t se utiliza para determinar si la media de una población difiere significativamente de un valor específico (o de la media de otra población).
+
+Digamos que tienes un conjunto de datos de las alturas de una muestra de individuos, y quieres comprobar si la altura media de estas personas es significativamente diferente de 170 cm.
+
+Primero, importamos las bibliotecas necesarias y creamos nuestros datos:
+```python
+import numpy as np
+import scipy.stats as stats
+
+# Generamos datos de muestra
+np.random.seed(0)  # para reproducibilidad
+heights = np.random.normal(loc=175, scale=10, size=100)  # alturas con una media de 175 cm y una desviación estándar de 10 cm
+
+# Luego realizamos la prueba
+t_statistic, p_value = stats.ttest_1samp(heights, 170)
+
+print(f"Estadística t: {t_statistic}")
+print(f"Valor p: {p_value}")
+```
+
+En este caso, stats.ttest_1samp realiza una prueba t de una muestra. El primer argumento es la muestra de datos, y el segundo argumento es la media de la población bajo la hipótesis nula (en este caso, 170 cm).
+
+La función devuelve dos valores: la estadística t y el valor p. La estadística t es una medida de cuánto difiere la media de la muestra de la media bajo la hipótesis nula, y el valor p es la probabilidad de obtener una diferencia al menos tan extrema como la observada, asumiendo que la hipótesis nula es cierta.
+
+Si el valor p es pequeño (por lo general, menor a 0.05), se rechaza la hipótesis nula y se concluye que la media de la muestra es significativamente diferente de 170 cm. Si el valor p es grande, no se puede rechazar la hipótesis nula.
 
 ### Probabilidad: Fundamentos de la probabilidad
 La probabilidad es una rama de las matemáticas que se ocupa de los eventos y sus posibilidades de ocurrencia.
