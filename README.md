@@ -1,3 +1,6 @@
+![Ciencia de Datos con Python](https://bafybeid5rbkyjz3p26xtmok5fuo4wyhbwzibpw7vnwb2w33clhyoac2vfq.ipfs.w3s.link/datascience.jpg)
+
+
 # Ciencia de Datos con Python
 
 ¡Hola a todos! Nos complace darles la bienvenida a este fascinante viaje por el mundo de la Ciencia de Datos y Python. Este curso ha sido diseñado con el objetivo de proporcionarles las habilidades y herramientas necesarias para explorar, analizar y entender los datos, así como para realizar sus propias investigaciones y proyectos de Ciencia de Datos.
