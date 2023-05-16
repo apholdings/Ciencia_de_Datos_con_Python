@@ -1,4 +1,6 @@
-# Actividad - Limpieza y Transformación de Datos
+# Titanic - Machine Learning From Disaster
+
+## Actividad - Limpieza y Transformación de Datos
 Para consolidar lo aprendido, vamos a trabajar con un conjunto de datos del mundo real.
 
 La tarea será cargar los datos, limpiarlos y transformarlos utilizando las habilidades adquiridas.
