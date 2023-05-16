@@ -1,4 +1,4 @@
-# 1) Programacion Pythoon
+# 1) Programacion Python desde Cero
 Python es un lenguaje de programación interpretado con una sintaxis clara y legible.
 
 ## Conceptos Basicos
@@ -23,7 +23,7 @@ Python utiliza las sentencias if, for, while, break, y continue para controlar e
 
 ### Funciones en Python
 Las funciones son bloques de código reutilizables que realizan una tarea específica.
-* Definición de funciones: Se utiliza la palabra clave def para definir una función.
-* Llamada a funciones: Se utilizan paréntesis () para llamar a una función.
-* Argumentos de funciones: Las funciones pueden tomar argumentos para realizar sus tareas.
+- **Definición de funciones:** Se utiliza la palabra clave def para definir una función.
+- **Llamada a funciones:** Se utilizan paréntesis () para llamar a una función.
+- **Argumentos de funciones:** Las funciones pueden tomar argumentos para realizar sus tareas.
 Valores de retorno: Las funciones pueden retornar valores que pueden ser utilizados posteriormente.
