@@ -1,5 +1,7 @@
-# Conceptos básicos de Python
+# 1) Programacion Pythoon
 Python es un lenguaje de programación interpretado con una sintaxis clara y legible.
+
+## Conceptos Basicos
 - [Declaración de variables:](variables.py) variable = valor
 - [Tipos de datos básicos:](tipos_de_datos.py) int, float, str, bool.
 - [Operadores aritméticos:](operadores.py) +, -, *, /, **, %.
