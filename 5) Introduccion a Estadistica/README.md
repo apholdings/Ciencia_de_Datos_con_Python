@@ -117,6 +117,24 @@ La probabilidad también se puede entender en términos de frecuencia relativa. 
 
 La probabilidad condicional es fundamental para muchas conceptos en estadística y aprendizaje automático, incluyendo la regla de Bayes, que proporciona una forma de actualizar nuestras creencias sobre un evento dado nueva evidencia.
 
+##### Ejemplo
+Te mostraré un ejemplo sencillo de probabilidad condicional utilizando Python.
+
+Imagina que tienes un mazo de cartas (52 cartas en total, 13 de cada uno de los 4 palos: corazones, diamantes, tréboles y picas). Queremos saber cuál es la probabilidad de que una carta robada al azar sea un corazón dado que sabemos que es roja. Sabemos que hay 26 cartas rojas en total (13 corazones y 13 diamantes), así que podemos calcular esta probabilidad de la siguiente manera:
+```python
+# Número total de corazones y de cartas rojas
+total_hearts = 13
+total_red_cards = 26
+
+# Probabilidad condicional de que una carta sea un corazón dado que es roja
+prob_heart_given_red = total_hearts / total_red_cards
+
+print(f"La probabilidad de que una carta sea un corazón dado que sabemos que es roja es {prob_heart_given_red}")
+```
+
+Este es un ejemplo simple, pero ilustra cómo puedes usar la probabilidad condicional para calcular la probabilidad de un evento dado que sabes que otro evento ha ocurrido.
+
+
 ### Correlacion y Regresion
 - **Correlacion:** La correlación mide la relación lineal entre dos variables. Es un valor entre -1 y 1, donde 1 significa una correlación positiva perfecta, -1 una correlación negativa perfecta, y 0 ninguna correlación. La correlación puede ser una herramienta útil para descubrir relaciones entre variables en tus datos.
 
