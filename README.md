@@ -18,7 +18,7 @@ El objetivo principal de este curso es proporcionar una base sólida en Python y
 Esperamos que estén tan emocionados como nosotros por este viaje. ¡Empecemos a aprender!
 
 ### Temas del Curso por Semana
-1. [Conceptos básicos de Python](1%29%20Programacion%20Python/)
+1. [Conceptos básicos de Python](1%29%20Programacion%20Python/README.md)
 2. Introducción a la ciencia de datos
 3. Manipulación de datos con Pandas
 4. Visualización de datos con Matplotlib y Seaborn
