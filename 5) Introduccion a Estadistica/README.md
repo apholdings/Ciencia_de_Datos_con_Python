@@ -51,3 +51,28 @@ La probabilidad también se puede entender en términos de frecuencia relativa. 
 **Probabilidad condicional:** La probabilidad condicional de un evento es la probabilidad de que el evento ocurra dado que otro evento ya ha ocurrido. Se denota como P(A|B), que se lee "la probabilidad de A dado B". Por ejemplo, si estamos lanzando dos monedas, la probabilidad de que ambas sean caras es 0.25. Sin embargo, si ya sabemos que la primera moneda fue cara, la probabilidad condicional de que la segunda moneda sea cara es 0.5.
 
 La probabilidad condicional es fundamental para muchas conceptos en estadística y aprendizaje automático, incluyendo la regla de Bayes, que proporciona una forma de actualizar nuestras creencias sobre un evento dado nueva evidencia.
+
+### Correlacion y Regresion
+- **Correlacion:** La correlación mide la relación lineal entre dos variables. Es un valor entre -1 y 1, donde 1 significa una correlación positiva perfecta, -1 una correlación negativa perfecta, y 0 ninguna correlación. La correlación puede ser una herramienta útil para descubrir relaciones entre variables en tus datos.
+
+En Python, puedes usar el método corr() de un DataFrame de pandas para calcular la correlación entre todas las parejas de columnas numéricas. 
+```python
+correlation_matrix = df.corr()
+```
+
+- **Regresión:** La regresión es un enfoque para modelar la relación entre una variable dependiente y una o más variables independientes. La regresión lineal simple es el caso más simple, en el que modelamos la relación entre una variable dependiente y una variable independiente como una línea recta.
+
+En Python, puedes usar la biblioteca statsmodels para ajustar un modelo de regresión lineal. Por ejemplo:
+```python
+import statsmodels.api as sm
+
+X = df['variable_independiente']
+y = df['variable_dependiente']
+
+X = sm.add_constant(X)  # Agregar una constante (intercepto) al modelo
+
+model = sm.OLS(y, X)  # Crear el modelo de regresión lineal
+results = model.fit()  # Ajustar el modelo a los datos
+
+print(results.summary())  # Imprimir un resumen de los resultados
+```
