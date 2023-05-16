@@ -5,7 +5,7 @@ Antes de sumergirnos en el modelado complejo o el aprendizaje automático, es vi
 
 Esta comprensión nos ayudará a tomar decisiones informadas sobre cómo procesar los datos, qué modelos usar, qué características son importantes, cómo validar nuestros modelos y más.
 
-#### El objetivo principal del AED es:
+### El objetivo principal del AED es:
 
 1. **Maximizar la comprensión de un conjunto de datos.** El AED proporciona una descripción detallada de los datos mediante el uso de estadísticas descriptivas y visualizaciones. Esto nos ayuda a entender qué están diciendo realmente nuestros datos.
 
@@ -19,7 +19,7 @@ Esta comprensión nos ayudará a tomar decisiones informadas sobre cómo procesa
 
 En resumen, el AED es la primera (y una de las más importantes) etapas en la cadena de análisis de datos. Sin él, corremos el riesgo de hacer suposiciones erróneas, usar modelos inapropiados, perder información importante y, en última instancia, obtener resultados incorrectos. Además, la habilidad para realizar un AED efectivo es una de las habilidades más valoradas en los analistas y científicos de datos, ya que demuestra la capacidad para entender y trabajar con los datos en un nivel fundamental.
 
-### Tecnicas de AED
+## Tecnicas de AED
 Vamos a ver cómo se realizan algunas de estas técnicas de Análisis Exploratorio de Datos (AED) utilizando Pandas y Matplotlib en Python
 
 Primero, empezaremos por cargar los datos y prepararlos para el análisis. Usaremos el conjunto de datos de "House Prices" que has mencionado antes.
