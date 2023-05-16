@@ -55,4 +55,4 @@ Este gráfico nos ayuda a ver si hay una diferencia significativa en la distribu
 
 Ahora que completamos la primera actividad, hagamos lo mismo pero con un conjunto de datos mas complejo.
 
-[Ver Actividad Completa](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/5%29%20Introduccion%20a%20Estadistica/House%20Prices%20-%20Advanced%20Regression%20Techniques)
+[Ver Actividad Completa](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/6%29%20Analisis%20Exploratorio%20de%20Datos/House%20Prices%20-%20Advanced%20Regression%20Techniques)
