@@ -103,7 +103,7 @@ engine = create_engine('sqlite:///database.db')
 df_sql = pd.read_sql('SELECT * FROM tabla', engine)
 ```
 
-## Limpieza de Datos con Pandas
+### Limpieza de Datos con Pandas
 Los datos del mundo real a menudo están llenos de errores, faltantes, duplicados, y pueden tener tipos de datos incorrectos.
 Pandas proporciona funciones eficientes para manejar estos problemas.
 Para tratar con los datos faltantes, Pandas proporciona funciones como dropna(), que elimina las filas o columnas con valores faltantes, y fillna(), que llena los valores faltantes con un valor específico.
@@ -111,9 +111,14 @@ Para tratar con los datos duplicados, Pandas proporciona la función drop_duplic
 Para cambiar los tipos de datos de las columnas, Pandas proporciona la función astype().
 [Ver Codigo de Ejemplo](limpieza_de_datos.py)
 
-## Transformación de Datos con Pandas
+### Transformación de Datos con Pandas
 Pandas proporciona una gran cantidad de funciones para transformar datos en un DataFrame.
 Podemos crear nuevas columnas a partir de las existentes, utilizando operaciones matemáticas, funciones de string, funciones de fecha y hora, y más.
 La función groupby() permite agregar datos basándose en alguna columna. Por ejemplo, podríamos calcular el promedio de todas las filas que tienen el mismo valor en una columna específica.
 Los DataFrames pueden ser fusionados utilizando funciones como merge() y concat(), similares a las operaciones JOIN en SQL.
+
 [Ver Codigo de Ejemplo](transformacion_de_datos.py)
+
+En este código, estamos utilizando un DataFrame de pandas para demostrar las operaciones comunes de limpieza de datos. Primero, creamos un DataFrame con algunos datos faltantes y duplicados. Luego, mostramos cómo eliminar las filas con valores faltantes, cómo llenar los valores faltantes con cero, cómo eliminar los duplicados y cómo cambiar el tipo de datos de una columna a 'int'.
+
+Nota: Como astype(int) no puede manejar los valores NaN, utilizamos fillna(0) antes de cambiar el tipo de datos para asegurarnos de que no haya valores faltantes en la columna.
