@@ -19,4 +19,4 @@ Pero la visualización de datos no es solo sobre cómo crear gráficos; es tambi
 ## Actividad de Ejercicio
 Ahora debemos practicar lo aprendido en un ejemplo de mundo real, empezaremos a trabajar con un set de datos de Kaggle llamado [Titanic: Machine Learning from Disaster](https://www.kaggle.com/datasets/shuofxz/titanic-machine-learning-from-disaster?resource=download) asi que veamos como resolver el ejercicio aqui:
 
-[Ver Codigo Actividad Completa](Titanic%20-%20Machine%20Learning%20From%20Disaster)
+[Ver Codigo Actividad Completa](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/4%29%20Visualizacion%20de%20Datos/Titanic%20-%20Machine%20Learning%20From%20Disaster)
