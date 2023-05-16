@@ -85,7 +85,25 @@ Este script creará tres gráficos: un histograma de las edades de los pasajeros
 Es importante entender la razon de por que hacemos esos graficos.
 
 1. **Histograma de las edades:** Este gráfico nos muestra la distribución de las edades de los pasajeros en el Titanic. El eje x representa diferentes grupos de edad y el eje y representa la cantidad de pasajeros en cada grupo de edad. Este gráfico nos puede dar una idea general de la demografía de los pasajeros en el Titanic. Por ejemplo, podemos ver si la mayoría de los pasajeros eran jóvenes, de mediana edad, o mayores.
+```python
+plt.figure(figsize=(10, 6))
+plt.title("Distribución de las edades")
+sns.histplot(df_train["Age"], kde=False, bins=30)
+plt.show()
+```
 
 2. **Gráfico de barras de la supervivencia por género:** Este gráfico nos muestra la relación entre el género de los pasajeros y si sobrevivieron o no. El eje x representa la supervivencia (0 para los que no sobrevivieron y 1 para los que sobrevivieron), y el eje y representa el número de pasajeros. Las barras están coloreadas por género. Este gráfico puede ayudarnos a entender si el género tuvo algún impacto en la supervivencia de los pasajeros. Por ejemplo, si vemos que una proporción significativamente mayor de mujeres sobrevivió en comparación con los hombres, esto podría indicar que las mujeres tenían más probabilidades de sobrevivir.
+```python
+plt.figure(figsize=(10, 6))
+plt.title("Supervivencia por género")
+sns.countplot(x="Survived", hue="Sex", data=df_train)
+plt.show()
+```
 
 3. **Gráfico de barras de la supervivencia por clase de pasajero:** Este gráfico es similar al anterior, pero en lugar de mostrar la supervivencia por género, muestra la supervivencia por la clase de pasajero (1ª, 2ª, o 3ª clase). Este gráfico puede ayudarnos a entender si la clase de pasajero tuvo algún impacto en la supervivencia. Por ejemplo, si vemos que una proporción significativamente mayor de pasajeros de 1ª clase sobrevivió en comparación con los pasajeros de 2ª y 3ª clase, esto podría indicar que los pasajeros de 1ª clase tenían más probabilidades de sobrevivir.
+```python
+plt.figure(figsize=(10, 6))
+plt.title("Supervivencia por clase de pasajero")
+sns.countplot(x="Survived", hue="Pclass", data=df_train)
+plt.show()
+```
