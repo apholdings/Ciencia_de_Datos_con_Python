@@ -194,4 +194,4 @@ Nota: Como astype(int) no puede manejar los valores NaN, utilizamos fillna(0) an
 ## Actividad de Ejercicio
 Ahora debemos practicar lo aprendido en un ejemplo de mundo real, empezaremos a trabajar con un set de datos de Kaggle llamado [Titanic: Machine Learning from Disaster](https://www.kaggle.com/datasets/shuofxz/titanic-machine-learning-from-disaster?resource=download) asi que veamos como resolver el ejercicio aqui:
 
-[Ver Codigo Actividad Completa](Titanic%20-Machine%20Learning%20from%20Disaster)
+[Ver Codigo Actividad Completa](Titanic%20-%20Machine%20Learning%20From%20Disaster)
