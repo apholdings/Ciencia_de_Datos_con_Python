@@ -1,7 +1,7 @@
 # Ciencia de Datos con Python
 
-## Temas del Curso por Semana
-1. Semana 1: Conceptos básicos de Python
+### Temas del Curso por Semana
+1. Conceptos básicos de Python
 2. Introducción a la ciencia de datos
 3. Manipulación de datos con Pandas
 4. Visualización de datos con Matplotlib y Seaborn
@@ -11,8 +11,16 @@
 8. Pandas Avanzado
 9. Introducción al aprendizaje automático
 10. Sobreajuste e infraajuste
-12. Scikit-Learn
-13. Aprendizaje supervisado
-14. Aprendizaje no supervisado
-15. Métricas de evaluación
-16. Selección de modelos y ajuste de hiperparámetros
+11. Scikit-Learn
+12. Aprendizaje supervisado
+13. Aprendizaje no supervisado
+14. Métricas de evaluación
+15. Selección de modelos y ajuste de hiperparámetros
+
+## Conceptos básicos de Python
+Python es un lenguaje de programación interpretado con una sintaxis clara y legible.
+- **Declaración de variables:** variable = valor
+- **Tipos de datos básicos:** int, float, str, bool.
+- **Operadores aritméticos:** +, -, *, /, **, %.
+- **Bucles:** for, while.
+- **Condicionales:** if, elif, else.
