@@ -90,6 +90,33 @@ df = pd.DataFrame({
 df_encoded = pd.get_dummies(df, columns=['A'])
 ```
 
+## Variables Categoricas
+Las variables categóricas son aquellas que contienen valores de etiqueta en lugar de valores numéricos. El número de posibles valores a menudo se limita a un conjunto fijo. Por ejemplo, los usuarios suelen describir su género como hombre o mujer. Aunque podemos encontrar formas de convertir estas variables en números, los algoritmos de aprendizaje automático pueden no ser capaces de interpretar correctamente las relaciones entre estos números.
+
+Por lo tanto, necesitamos encontrar una forma de codificar estas variables categóricas que permita a los algoritmos de aprendizaje automático entender mejor los patrones en los datos.
+
+### Las técnicas de codificación más comunes son:
+- **One-Hot Encoding:** Convierte cada valor de una característica categórica en una nueva característica binaria (0 o 1). Este método es muy eficaz cuando las categorías no tienen ningún tipo de relación ordinal.
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    'A': ['cat', 'dog', 'mouse']
+})
+
+df_encoded = pd.get_dummies(df, columns=['A'])
+
+print(df_encoded)
+```
+Resultado:
+
+|     |A_cat  |A_dog  |A_mouse  |
+|:---:|:-----:|:-----:|:-------:|
+| 0   |  1    |  0    |   0     |
+| 1   |  0    |  1    |   0     |
+| 2   |  0    |  0    |   1     |
+
+
 Ahora veamos como poner en practica la ingenieria de caracteristicas en un conjuntod e datos del mundo real.
 
 [Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/7%29%20Ingenieria%20de%20Caracteristicas/Titanic%20-%20Machine%20Learning%20From%20Disaster)
