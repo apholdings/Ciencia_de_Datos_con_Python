@@ -116,6 +116,54 @@ Resultado:
 | 1   |  0    |  1    |   0     |
 | 2   |  0    |  0    |   1     |
 
+- **Ordinal Encoding:** Asigna un valor único a cada categoría de una característica categórica. Este método es útil cuando las categorías tienen una relación ordinal clara, es decir, cuando se puede decir que una categoría es "mayor" o "menor" que otra.
+```python
+from sklearn.preprocessing import OrdinalEncoder
+
+df = pd.DataFrame({
+    'A': ['cold', 'warm', 'hot']
+})
+
+ordinal_encoder = OrdinalEncoder()
+df['A'] = ordinal_encoder.fit_transform(df[['A']])
+
+print(df)
+```
+Resultado:
+
+|     |   A   |
+|:---:|:-----:|
+|  0  |   1   |
+|  1  |   0   |
+|  2  |   0   | 
+
+
+- **Binary Encoding:** Este método es una combinación de Hash encoding y One-Hot encoding. Primero, las categorías se codifican como números ordinales. Luego, los números ordinales se convierten en binario. Este método puede ser útil cuando una característica categórica tiene muchas categorías, ya que puede reducir la dimensionalidad de los datos.
+```python
+import category_encoders as ce
+
+df = pd.DataFrame({
+    'A': ['cat', 'dog', 'mouse', 'bird', 'fish', 'elephant']
+})
+
+encoder = ce.BinaryEncoder(cols=['A'])
+df_encoded = encoder.fit_transform(df)
+
+print(df_encoded)
+```
+Resultado (simplificado):
+
+|     |  A_0  |  A_1  |  A_2  |  A_3  |
+|:---:|:-----:|:-----:|:-----:|:-----:|
+|  0  |   0   |   0   |   0   |   1   |
+|  1  |   0   |   0   |   1   |   0   |
+|  2  |   0   |   0   |   1   |   1   |
+|  3  |   0   |   1   |   0   |   0   |
+|  4  |   0   |   1   |   0   |   1   |
+|  5  |   0   |   1   |   1   |   0   |
+
+En la elección de qué técnica de codificación utilizar, es importante considerar la naturaleza de la característica categórica (si tiene una relación ordinal o no), el número de categorías únicas y el algoritmo de aprendizaje automático que se utilizará.
+
 
 Ahora veamos como poner en practica la ingenieria de caracteristicas en un conjuntod e datos del mundo real.
 
