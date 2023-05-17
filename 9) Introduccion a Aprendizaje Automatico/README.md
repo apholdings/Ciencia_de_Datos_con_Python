@@ -170,4 +170,4 @@ Al final de esta semana, los estudiantes tendrán una sólida comprensión de lo
 
 Apliquemos lo aprendido en la práctica usando el conjunto de datos del Titanic.
 
-[Ver Actividad](1234)
+[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/blob/main/9%29%20Introduccion%20a%20Aprendizaje%20Automatico/Titanic%20-%20Machine%20Learning%20From%20Disaster/README.md)
