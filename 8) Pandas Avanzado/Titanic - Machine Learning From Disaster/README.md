@@ -57,4 +57,4 @@ print(df.memory_usage(deep=True))
 ```
 
 Ahora podemos seguir practicando con el conjunuto de datos de House Prices.
-[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/blob/main/%29%20Pandas%20Avanzado/House%20Prices%20-%20Advanced%20Regression%20Techniques/README.md)
+[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/blob/main/8%29%20Pandas%20Avanzado/House%20Prices%20-%20Advanced%20Regression%20Techniques/README.md)
