@@ -164,6 +164,7 @@ Resultado (simplificado):
 
 En la elección de qué técnica de codificación utilizar, es importante considerar la naturaleza de la característica categórica (si tiene una relación ordinal o no), el número de categorías únicas y el algoritmo de aprendizaje automático que se utilizará.
 
+### Actividad
 
 Ahora veamos como poner en practica la ingenieria de caracteristicas en un conjuntod e datos del mundo real.
 
