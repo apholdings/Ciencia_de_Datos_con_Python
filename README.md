@@ -26,7 +26,7 @@ Esperamos que estén tan emocionados como nosotros por este viaje. ¡Empecemos a
 6. [Análisis Exploratorio de Datos (AED)](6%29%20Analisis%20Exploratorio%20de%20Datos/README.md)
 7. [Ingeniería de Características](7%29%20Ingenieria%20de%20Caracteristicas/README.md)
 8. [Pandas Avanzado](8%29%20Pandas%20Avanzado/README.md)
-9. Introducción al aprendizaje automático
+9. [Introducción al aprendizaje automático](9%29%20Introduccion%20a%20Aprendizaje%20Automatico/README.md)
 10. Sobreajuste e infraajuste
 11. Scikit-Learn
 12. Aprendizaje supervisado
