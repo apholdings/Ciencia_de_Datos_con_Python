@@ -337,3 +337,22 @@ df_december = df[df.index.month == 12]
 print(df_december)
 ```
 En este DataFrame, df_december contiene solo los datos de ventas de diciembre de cada año. Puedes utilizar estos datos para analizar las tendencias de las ventas navideñas, comparar las ventas de diferentes años y planificar la próxima temporada de vacaciones.
+
+## Rendimiento
+A medida que trabajas con conjuntos de datos más grandes, el rendimiento puede convertirse en un problema. Aprenderemos cómo mejorar el rendimiento de nuestros códigos de Pandas mediante el uso de operaciones vectorizadas (que son más rápidas que los bucles en Python) y reduciendo el uso de memoria.
+
+- **Operaciones vectorizadas:** Los DataFrame y las Series de pandas están construidos sobre la biblioteca NumPy, que es rápida y eficiente debido a su uso de operaciones vectorizadas. Una operación vectorizada es una operación que se realiza en un conjunto de valores a la vez, en lugar de en un solo valor a la vez. En el contexto de pandas, esto significa aplicar una operación a una Serie o un DataFrame entero a la vez, en lugar de aplicarla a cada valor de la Serie o del DataFrame uno por uno (que es lo que sucede cuando usas un bucle for en Python). Las operaciones vectorizadas son mucho más rápidas que los bucles for, por lo que siempre debes tratar de usar operaciones vectorizadas cuando sea posible.
+
+```python
+import pandas as pd
+import numpy as np
+
+# Crear un DataFrame de ejemplo
+df = pd.DataFrame({
+    'A': np.random.rand(1000000),
+    'B': np.random.rand(1000000),
+})
+
+# Usar una operación vectorizada para sumar las columnas A y B
+df['C'] = df['A'] + df['B']
+```
