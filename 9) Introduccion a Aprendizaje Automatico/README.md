@@ -56,3 +56,99 @@ Vamos a explorar los diferentes tipos de aprendizaje automático:
 - **Aprendizaje por Refuerzo:** En el aprendizaje por refuerzo, un agente aprende cómo comportarse en un entorno realizando acciones y recibiendo recompensas o castigos. El objetivo es aprender una serie de acciones que maximicen la recompensa total. Este tipo de aprendizaje automático es comúnmente usado en problemas como el entrenamiento de un modelo para jugar a un videojuego o para controlar un robot en la vida real. Ejemplos de algoritmos de aprendizaje por refuerzo incluyen Q-Learning y Deep Q-Learning.
 
 Cada uno de estos tipos de aprendizaje automático tiene sus propios usos y aplicaciones, y elegir el tipo correcto para tu problema es un primer paso crucial en cualquier proyecto de aprendizaje automático.
+
+## Pre-Procesamiento de Datos
+A continuación, te proporciono una introducción a algunas técnicas comunes de preprocesamiento de datos y cómo se pueden implementar en Python utilizando la biblioteca Pandas y Scikit-Learn.
+
+- **Manejo de datos faltantes:** Los datos del mundo real suelen estar llenos de datos faltantes. Antes de poder entrenar un modelo de aprendizaje automático, generalmente tendrás que decidir cómo manejar estos datos faltantes. Algunas de las técnicas más comunes incluyen:
+
+    - **Eliminación:** Si solo faltan unas pocas observaciones, puedes optar por eliminarlas.
+
+    - **Imputación:** En otros casos, puedes reemplazar los datos faltantes con un valor calculado, como la media, mediana o moda.
+
+```python
+import pandas as pd
+from sklearn.impute import SimpleImputer
+
+# Crear un DataFrame de ejemplo con algunos datos faltantes
+df = pd.DataFrame({
+    'A': [1, 2, np.nan, 4],
+    'B': [5, np.nan, 7, 8],
+    'C': [9, 10, 11, np.nan]
+})
+
+# Utilizar un imputador para reemplazar los datos faltantes con la media de cada columna
+imputer = SimpleImputer(strategy='mean')
+df_imputed = imputer.fit_transform(df)
+```
+
+- **Tratamiento de valores atípicos:** Los valores atípicos pueden tener un efecto significativo en tus modelos de aprendizaje automático, a menudo llevando a predicciones pobres. Algunas de las técnicas más comunes para manejar los valores atípicos incluyen:
+
+    - **Capping:** Puedes limitar los valores extremos a un cierto valor.
+
+    - **Transformación:** Aplicar una transformación, como una transformación logarítmica, puede reducir el impacto de los valores atípicos.
+
+- **Escalado y codificación de datos:** Muchos algoritmos de aprendizaje automático requieren que todas las características estén en la misma escala. Además, los algoritmos de aprendizaje automático requieren que las características categóricas se conviertan en numéricas. Aquí es donde entran en juego el escalado y la codificación.
+
+```python
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
+# Para las características numéricas, podemos usar StandardScaler para escalar las características a una media de 0 y una desviación estándar de 1
+scaler = StandardScaler()
+df_scaled = scaler.fit_transform(df[['A', 'B']])
+
+# Para las características categóricas, podemos usar OneHotEncoder para convertirlas en variables ficticias
+encoder = OneHotEncoder()
+df_encoded = encoder.fit_transform(df[['C']])
+```
+
+#### Como se cual tecnica usar
+Cada técnica de preprocesamiento de datos tiene su momento y lugar dependiendo del problema que estés resolviendo, el tipo de datos con los que estás trabajando y el modelo que planeas usar. 
+
+1. *Manejo de datos faltantes:*
+
+- **Eliminación:** Útil cuando solo faltan unas pocas observaciones en tu conjunto de datos, y estás seguro de que las observaciones faltantes son aleatorias y no sesgarán el modelo.
+- **Imputación:** Es útil cuando hay muchos datos faltantes, y es importante que no se pierda el resto de la información en las observaciones con datos faltantes.
+
+2. **Tratamiento de valores atípicos:**
+
+- **Capping:** Útil cuando sabes que los valores extremos son incorrectos o poco probable que sean representativos de futuras observaciones. Por ejemplo, si tienes una variable de edad y ves un valor de 200, probablemente quieras limitar este valor a un número más razonable.
+- **Transformación:** Útil cuando los valores extremos son correctos pero tienen una escala excesiva en comparación con otros datos. Por ejemplo, si estás trabajando con variables financieras que están altamente sesgadas, es posible que desees aplicar una transformación logarítmica para reducir el impacto de los valores extremos.
+
+
+3. **Escalado y codificación de datos:**
+
+- **Escalado:** Es útil cuando estás utilizando un algoritmo de aprendizaje automático que asume que todas las características están en la misma escala, como la regresión logística, las redes neuronales, y los algoritmos basados en la distancia como K-nearest neighbors y SVM.
+- **Codificación:** Se utiliza cuando estás trabajando con variables categóricas en un algoritmo de aprendizaje automático que requiere entradas numéricas. La codificación one-hot es una técnica común, pero hay muchas otras, incluyendo la codificación ordinal y la codificación de variables dummy.
+
+## Selección de características
+La selección de características es un paso crucial en la preparación de tus datos para el aprendizaje automático. Al elegir las características más relevantes para tu problema, puedes mejorar el rendimiento de tu modelo y reducir la complejidad de tu modelo, lo que a su vez puede hacer que tu modelo sea más rápido y más interpretable.
+
+#### Existen varias técnicas para la selección de características, incluyendo:
+
+- **Filtrado:** Esta es la forma más simple de selección de características y se basa en características numéricas de las características, como la correlación con la característica objetivo.
+
+- **Envoltura (Wrapper methods):** Estos métodos tratan de encontrar el subconjunto de características que proporciona el mejor rendimiento del modelo. Por ejemplo, el método de eliminación recursiva de características (RFE, por sus siglas en inglés) entrena un modelo, elimina la característica menos importante, y repite el proceso hasta que se alcanza un número predefinido de características.
+
+- **Incorporadas (Embedded methods):** Algunos modelos de aprendizaje automático tienen incorporada la selección de características. Por ejemplo, los modelos basados en árboles como la regresión de bosque aleatorio y el potenciador de gradiente pueden proporcionar una importancia de característica basada en la cantidad de veces que una característica se usa para dividir los datos.
+
+En cuanto a la reducción de la dimensionalidad, es una técnica útil cuando se trabaja con datos de alta dimensión que puede ser difícil de manejar para algunos algoritmos de aprendizaje automático. Las técnicas de reducción de dimensionalidad, como el Análisis de Componentes Principales (PCA) o el Análisis Factorial, pueden ayudarte a reducir la cantidad de características en tus datos transformando tus características originales en un nuevo conjunto de características que mantienen la mayor parte de la información relevante, pero con una dimensionalidad reducida.
+
+Recuerda que la selección de características y la reducción de la dimensionalidad son procesos iterativos y es importante probar diferentes combinaciones y evaluar el rendimiento del modelo.
+
+## Modelos de Aprendizaje Automático
+Existen varios modelos de aprendizaje automático, cada uno de los cuales es adecuado para diferentes tipos de problemas. Aquí hay una descripción de algunos de los más comunes:
+
+- **Regresión Lineal:** Este es uno de los algoritmos más simples y se utiliza para predecir un valor numérico basado en las características. El algoritmo de regresión lineal asume una relación lineal entre las características y el valor objetivo.
+
+- **Regresión Logística:** Este es un algoritmo similar a la regresión lineal, pero se utiliza para problemas de clasificación binaria. Predice la probabilidad de que un ejemplo pertenezca a una clase en particular.
+
+- **Árboles de Decisión:** Este algoritmo predice el valor objetivo al aprender reglas de decisión simples inferidas de las características. Los árboles de decisión son muy interpretativos y pueden manejar tanto características numéricas como categóricas.
+
+- **Bosques Aleatorios:** Este es un método de conjunto que construye múltiples árboles de decisión y los combina para obtener una predicción más precisa y robusta. Los bosques aleatorios son menos propensos a sobreajustar los datos que un solo árbol de decisión.
+
+- **Máquinas de Vectores de Soporte (SVM):** Este algoritmo se utiliza para problemas de clasificación y regresión. Las SVMs pueden manejar datos de alta dimensión y son efectivas cuando el número de dimensiones es mayor que el número de muestras.
+
+- **Redes Neuronales:** Este es un algoritmo que se inspira en el funcionamiento del cerebro humano y puede modelar relaciones complejas entre características. Las redes neuronales son muy potentes y se utilizan en una variedad de aplicaciones, desde la visión por computadora hasta el procesamiento del lenguaje natural.
+
+Cada uno de estos algoritmos tiene sus ventajas y desventajas, y la elección del algoritmo depende del problema específico que estés tratando de resolver. Además, la mayoría de estos algoritmos tienen hiperparámetros que debes ajustar para obtener el mejor rendimiento posible. El ajuste de hiperparámetros es un área en sí misma y existen varias técnicas para hacerlo de manera eficiente, como la búsqueda en cuadrícula y la búsqueda aleatoria.
