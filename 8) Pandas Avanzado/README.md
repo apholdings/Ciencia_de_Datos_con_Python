@@ -356,3 +356,26 @@ df = pd.DataFrame({
 # Usar una operación vectorizada para sumar las columnas A y B
 df['C'] = df['A'] + df['B']
 ```
+
+- **Reducción del uso de memoria:** Pandas no es especialmente eficiente en cuanto a memoria, y trabajar con conjuntos de datos grandes puede causar problemas de rendimiento. Aquí hay algunas técnicas que puedes usar para reducir el uso de memoria de tus DataFrames:
+
+Uso de tipos de datos más eficientes: Pandas tiende a usar tipos de datos que ocupan más memoria de la necesaria. Por ejemplo, podría usar int64 (un entero de 64 bits) para almacenar una columna de datos que solo contiene los números 0 y 1. Podrías reducir el uso de memoria cambiando el tipo de datos de esa columna a int8 (un entero de 8 bits).
+
+Uso del parámetro low_memory en read_csv(): Cuando lees un archivo CSV con pandas, puedes pasar el parámetro low_memory=True para reducir el uso de memoria.
+```python
+# Crear un DataFrame de ejemplo
+df = pd.DataFrame({
+    'A': pd.Series(range(100000), dtype='int64'),
+    'B': pd.Series(range(100000), dtype='int64'),
+})
+
+# Ver el uso de memoria actual
+print(df.memory_usage(deep=True))
+
+# Cambiar el tipo de datos de la columna 'A' a int8
+df['A'] = df['A'].astype('int8')
+
+# Ver el uso de memoria después de cambiar el tipo de datos
+print(df.memory_usage(deep=True))
+```
+En este ejemplo, cambiamos el tipo de datos de la columna 'A' de int64 a int8, lo que reduce significativamente el uso de memoria de esa columna.
