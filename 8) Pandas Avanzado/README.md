@@ -142,3 +142,97 @@ print("\nPivot Table with Sales Percentage:\n", pivot)
 4. Finalmente, usamos la función apply para calcular el porcentaje de ventas de cada producto por tienda.
 
 A través de este análisis, podemos obtener una visión detallada de las ventas por tienda y por producto. Esto podría ser útil para tomar decisiones sobre estrategias de ventas, inventario y más.
+
+
+## Manipulación de datos de series temporales
+Trabajar con series temporales es una tarea común en muchas aplicaciones de análisis de datos. Pandas proporciona una serie de herramientas para trabajar con fechas, horas y series temporales.
+
+Aquí están algunos de los conceptos clave en la manipulación de series temporales con Pandas:
+Conversión de cadenas a fechas: Si tus datos están en formato de cadena, puedes usar la función pd.to_datetime() para convertirlos en un objeto de fecha y hora de Python.
+
+- **Conversión de cadenas a fechas:** Si tienes un conjunto de datos con cadenas de texto que representan el tiempo, podemos hacer uso de la funcion to_datetime() para convertir las cadenas de texto a fechas.
+```python
+import pandas as pd
+
+# Crear un DataFrame de ejemplo
+df = pd.DataFrame({
+    'date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04'],
+    'value': [1, 2, 3, 4]
+})
+
+# Convertir la columna de fecha a datetime
+df['date'] = pd.to_datetime(df['date'])
+
+print(df)
+print(df.dtypes)
+```
+
+- **Resampling:** Si tienes una serie temporal y quieres cambiar la frecuencia de los datos, puedes usar la función resample(). Por ejemplo, si tienes datos diarios y quieres resumirlos en datos mensuales, puedes hacerlo con resample().
+```python
+# Crear un DataFrame con fechas diarias
+rng = pd.date_range('2023-01-01', periods=100, freq='D')
+df = pd.DataFrame({'value': range(100)}, index=rng)
+
+# Resample a datos mensuales, sumando los valores de cada mes
+df_monthly = df.resample('M').sum()
+
+print(df_monthly)
+```
+#### Veamos cómo se podría usar el Resampling / Remuestreo en un escenario del mundo real.
+
+Imagina que trabajas para una empresa de ventas al por menor y tienes datos de ventas diarias para diferentes productos en diferentes tiendas. Tienes una serie de tiempo con las ventas diarias para un producto en particular en una tienda en particular.
+
+Sin embargo, estás interesado en analizar las tendencias a nivel de mes en lugar de día a día, ya que las fluctuaciones diarias pueden ser muy volátiles y pueden dificultar la identificación de las tendencias subyacentes. Por tanto, quieres resumir tus datos diarios en datos mensuales.
+
+Podrías hacerlo con el remuestreo de la siguiente manera:
+```python
+import pandas as pd
+
+# Supongamos que este es tu DataFrame de ventas diarias
+df_daily_sales = pd.DataFrame({
+    'date': pd.date_range(start='2023-01-01', end='2023-12-31'),
+    'sales': pd.np.random.randint(1, 100, size=365)
+})
+
+# Convertir la columna de fecha a datetime y establecerla como índice
+df_daily_sales['date'] = pd.to_datetime(df_daily_sales['date'])
+df_daily_sales.set_index('date', inplace=True)
+
+# Remuestrear a ventas mensuales
+df_monthly_sales = df_daily_sales.resample('M').sum()
+
+print(df_monthly_sales)
+```
+Ahora, en lugar de tener 365 puntos de datos para el año, tienes 12 puntos de datos que representan las ventas totales para cada mes. Esto podría facilitarte la identificación de las tendencias a lo largo del año, como cuáles son los meses más fuertes para las ventas.
+
+- **Desplazamiento de datos:** Si necesitas desplazar tus datos en el tiempo, puedes usar la función shift(). Esto puede ser útil para calcular cambios en el tiempo (por ejemplo, la diferencia de ventas entre este mes y el mes pasado).
+```python
+# Desplazar los datos un lugar hacia abajo
+df_shifted = df.shift(1)
+
+print(df_shifted.head())
+```
+
+- **Ventanas móviles:** Si necesitas calcular estadísticas móviles (como un promedio móvil), puedes usar la función rolling().
+```python
+# Calcular un promedio móvil de 7 días
+df_rolling = df.rolling(window=7).mean()
+
+print(df_rolling.head(10))
+```
+
+- **Diferenciación:** Si necesitas calcular la diferencia entre el valor actual y el valor anterior en una serie temporal, puedes usar la función diff().
+```python
+# Calcular la diferencia día a día
+df_diff = df.diff()
+
+print(df_diff.head())
+```
+
+- **Selección y filtrado:** Puedes seleccionar subconjuntos de tus datos basándote en la fecha y la hora. Por ejemplo, puedes seleccionar todos los datos del año 2020, o todos los datos de las 9:00 a las 17:00, y así sucesivamente.
+```python
+# Seleccionar datos para enero de 2023
+df_january = df['2023-01']
+
+print(df_january)
+```
