@@ -2,7 +2,7 @@
 
 ## Actividad - Practicar habilidades avanzadas de pandas en un conjunto de datos desafiante.
 
-#### Manipulaciones de datos más complejas: apply(), tablas dinámicas, multi-index.
+### Manipulaciones de datos más complejas: apply(), tablas dinámicas, multi-index.
 
 Primero, leamos el conjunto de datos y veamos sus primeras filas:
 
@@ -43,7 +43,7 @@ df.set_index(['SizeCategory', 'OverallQual'], inplace=True)
 print(df.head())
 ```
 
-#### Rendimiento: Uso de operaciones vectorizadas, reducción del uso de memoria.
+### Rendimiento: Uso de operaciones vectorizadas, reducción del uso de memoria.
 
 - **Uso de operaciones vectorizadas:** En lugar de usar un bucle for para iterar sobre las filas del DataFrame y calcular el precio promedio de venta para cada categoría de tamaño, podemos usar operaciones vectorizadas para hacerlo de manera más eficiente.
 ```python
