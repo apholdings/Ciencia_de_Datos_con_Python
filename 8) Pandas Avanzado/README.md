@@ -213,6 +213,34 @@ df_shifted = df.shift(1)
 print(df_shifted.head())
 ```
 
+#### Desplazamiento de datos en un escenario del mundo real.
+Supongamos que eres un analista financiero y estás trabajando con datos de ingresos mensuales de una empresa. Quieres calcular el cambio porcentual en los ingresos mes a mes, lo que te permitirá identificar tendencias de crecimiento o disminución en los ingresos.
+
+Podrías hacer esto utilizando la función shift() para desplazar los datos y luego calcular la diferencia porcentual:
+
+```python
+import pandas as pd
+
+# Supongamos que este es tu DataFrame de ingresos mensuales
+df_monthly_revenue = pd.DataFrame({
+    'date': pd.date_range(start='2023-01-01', end='2023-12-31', freq='M'),
+    'revenue': pd.np.random.randint(10000, 50000, size=12)
+})
+
+# Convertir la columna de fecha a datetime y establecerla como índice
+df_monthly_revenue['date'] = pd.to_datetime(df_monthly_revenue['date'])
+df_monthly_revenue.set_index('date', inplace=True)
+
+# Desplazar los ingresos un lugar hacia abajo
+df_shifted = df_monthly_revenue.shift(1)
+
+# Calcular el cambio porcentual en los ingresos
+df_monthly_revenue['percentage_change'] = (df_monthly_revenue['revenue'] - df_shifted['revenue']) / df_shifted['revenue'] * 100
+
+print(df_monthly_revenue)
+```
+Ahora, tendrás una nueva columna en tu DataFrame que muestra el cambio porcentual en los ingresos mes a mes. Con esta información, podrás analizar tendencias y patrones en los ingresos de la empresa a lo largo del tiempo y proporcionar información valiosa para la toma de decisiones.
+
 - **Ventanas móviles:** Si necesitas calcular estadísticas móviles (como un promedio móvil), puedes usar la función rolling().
 ```python
 # Calcular un promedio móvil de 7 días
@@ -221,6 +249,31 @@ df_rolling = df.rolling(window=7).mean()
 print(df_rolling.head(10))
 ```
 
+Las ventanas móviles son especialmente útiles cuando trabajas con series de tiempo y quieres suavizar las fluctuaciones a corto plazo y destacar tendencias a largo plazo. Un promedio móvil es un ejemplo común de esto.
+
+#### Ventanas móviles en un escenario del mundo real.
+Supongamos que estás analizando las acciones de una compañía y tienes datos diarios del precio de cierre de la acción durante el último año. Quieres calcular un promedio móvil de 30 días del precio de cierre para ayudarte a ver la tendencia general en el precio de la acción sin las fluctuaciones diarias.
+```python
+import pandas as pd
+import numpy as np
+
+# Crear un DataFrame con 365 días de precios de cierre (valores aleatorios para este ejemplo)
+df = pd.DataFrame({
+    'date': pd.date_range(start='2023-01-01', end='2023-12-31', freq='D'),
+    'close': np.random.rand(365) * 100
+})
+
+# Convertir la columna de fecha a datetime y establecerla como índice
+df['date'] = pd.to_datetime(df['date'])
+df.set_index('date', inplace=True)
+
+# Calcular un promedio móvil de 30 días del precio de cierre
+df['30_day_rolling_avg'] = df['close'].rolling(window=30).mean()
+
+print(df.head(35))
+```
+En este DataFrame, la nueva columna '30_day_rolling_avg' es el promedio móvil de 30 días del precio de cierre de la acción. Esta es una forma común de suavizar los datos de series de tiempo para ver tendencias a largo plazo.
+
 - **Diferenciación:** Si necesitas calcular la diferencia entre el valor actual y el valor anterior en una serie temporal, puedes usar la función diff().
 ```python
 # Calcular la diferencia día a día
@@ -228,6 +281,30 @@ df_diff = df.diff()
 
 print(df_diff.head())
 ```
+La diferenciación es una técnica común en el análisis de series de tiempo, especialmente cuando se quiere transformar una serie no estacionaria en una serie estacionaria para ciertos modelos estadísticos.
+
+#### Diferenciación en un escenario del mundo real.
+Por ejemplo, supongamos que eres analista financiero y estás estudiando el precio de las acciones de una compañía. Estás interesado en el cambio diario en el precio de las acciones, no en el precio absoluto. Aquí es donde la función diff() puede ser útil.
+```python
+import pandas as pd
+import numpy as np
+
+# Crear un DataFrame con 365 días de precios de cierre (valores aleatorios para este ejemplo)
+df = pd.DataFrame({
+    'date': pd.date_range(start='2023-01-01', end='2023-12-31', freq='D'),
+    'close': np.random.rand(365) * 100
+})
+
+# Convertir la columna de fecha a datetime y establecerla como índice
+df['date'] = pd.to_datetime(df['date'])
+df.set_index('date', inplace=True)
+
+# Calcular la diferencia día a día en el precio de cierre
+df['daily_change'] = df['close'].diff()
+
+print(df.head())
+```
+En este DataFrame, la nueva columna 'daily_change' representa el cambio en el precio de cierre de la acción de un día a otro. Puedes ver que el primer valor es NaN, porque no hay un día anterior con el que comparar el primer día.
 
 - **Selección y filtrado:** Puedes seleccionar subconjuntos de tus datos basándote en la fecha y la hora. Por ejemplo, puedes seleccionar todos los datos del año 2020, o todos los datos de las 9:00 a las 17:00, y así sucesivamente.
 ```python
@@ -236,3 +313,27 @@ df_january = df['2023-01']
 
 print(df_january)
 ```
+Seleccionar y filtrar datos basándose en la fecha y la hora es una técnica muy útil en muchos campos.
+
+#### Selección y filtrado en un escenario del mundo real.
+Supongamos que trabajas en un comercio minorista y tienes datos de ventas de varios años. Estás interesado en analizar las ventas de la temporada navideña de cada año. Podrías utilizar la selección y filtrado para hacer esto.
+```python
+import pandas as pd
+import numpy as np
+
+# Crear un DataFrame con 3 años de datos de ventas (valores aleatorios para este ejemplo)
+df = pd.DataFrame({
+    'date': pd.date_range(start='2021-01-01', end='2023-12-31', freq='D'),
+    'sales': np.random.rand(1096) * 1000
+})
+
+# Convertir la columna de fecha a datetime y establecerla como índice
+df['date'] = pd.to_datetime(df['date'])
+df.set_index('date', inplace=True)
+
+# Seleccionar datos para la temporada navideña (diciembre) de cada año
+df_december = df[df.index.month == 12]
+
+print(df_december)
+```
+En este DataFrame, df_december contiene solo los datos de ventas de diciembre de cada año. Puedes utilizar estos datos para analizar las tendencias de las ventas navideñas, comparar las ventas de diferentes años y planificar la próxima temporada de vacaciones.
