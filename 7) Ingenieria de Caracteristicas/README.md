@@ -33,6 +33,63 @@ La ingeniería de características puede implicar una variedad de actividades, e
 
 La ingeniería de características requiere una combinación de conocimientos de dominio, intuición y experimentación. A menudo, es útil visualizar los datos y las relaciones entre las características para obtener ideas para la ingeniería de características.
 
+
+## Tipos de Ingenieria de Caracteristica y Ejemplos
+Existen muchas técnicas de ingeniería de características y cuál se utiliza depende del problema específico y de los datos.
+
+- **Imputación:** Esta técnica se utiliza cuando nuestros datos tienen valores faltantes. Podemos llenar los valores faltantes con un valor específico, la media, la mediana, el modo, etc.
+```python
+import pandas as pd
+import numpy as np
+
+# Crear un DataFrame con valores faltantes
+df = pd.DataFrame({
+    'A': [1, 2, np.nan, 4],
+    'B': [5, np.nan, np.nan, 8],
+    'C': [9, 10, 11, 12]
+})
+
+# Llenar los valores faltantes con la media
+df.fillna(df.mean(), inplace=True)
+```
+
+- **Binning:** Esta técnica se utiliza para convertir una característica numérica en una característica categórica. Podemos hacer esto dividiendo el rango de la característica en bins y luego asignando los valores a estos bins. 
+```python
+# Crear una característica numérica
+df = pd.DataFrame({
+    'A': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+})
+
+# Convertir la característica numérica en una característica categórica utilizando binning
+df['A_binned'] = pd.cut(df['A'], bins=[0, 2, 4, 6, 8, 10], labels=['Bin_1', 'Bin_2', 'Bin_3', 'Bin_4', 'Bin_5'])
+```
+
+- **Creación de características polinómicas:** Esta técnica se utiliza para capturar las relaciones entre las características que no son lineales.
+```python
+from sklearn.preprocessing import PolynomialFeatures
+
+# Crear un DataFrame
+df = pd.DataFrame({
+    'A': [1, 2, 3, 4, 5],
+    'B': [2, 3, 4, 5, 6]
+})
+
+# Crear características polinómicas
+poly = PolynomialFeatures(degree=2, interaction_only=False, include_bias=False)
+df_poly = pd.DataFrame(poly.fit_transform(df), columns=poly.get_feature_names(df.columns))
+```
+
+- **Codificación de variables categóricas:** Esta técnica se utiliza para convertir las características categóricas en una forma que los algoritmos de aprendizaje automático puedan utilizar. Existen varias técnicas para esto, como One-Hot Encoding, Ordinal Encoding, entre otras.
+```python
+# Crear una característica categórica
+df = pd.DataFrame({
+    'A': ['cat', 'dog', 'cat', 'dog', 'cat']
+})
+
+# Convertir la característica categórica en características numéricas utilizando One-Hot Encoding
+df_encoded = pd.get_dummies(df, columns=['A'])
+```
+
 Ahora veamos como poner en practica la ingenieria de caracteristicas en un conjuntod e datos del mundo real.
 
 [Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/7%29%20Ingenieria%20de%20Caracteristicas/Titanic%20-%20Machine%20Learning%20From%20Disaster)
