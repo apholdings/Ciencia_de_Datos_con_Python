@@ -42,4 +42,4 @@ Este código carga el conjunto de datos de Titanic, llena los valores faltantes 
 
 
 Ahora podemos seguir practicando con el conjunuto de datos de House Prices.
-[Ver Actividad](test)
+[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/7%29%20Ingenieria%20de%20Caracteristicas/House%20Prices%20-%20Advanced%20Regression%20Techniques)

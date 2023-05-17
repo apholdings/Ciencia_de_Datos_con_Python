@@ -21,3 +21,6 @@ La ingeniería de características puede implicar una variedad de actividades, e
 4. **Selección de características:** No todas las características son útiles para un problema de aprendizaje automático. Algunas características pueden no contener información relevante, mientras que otras pueden contener información duplicada. La selección de características es el proceso de elegir las características más útiles para un problema de aprendizaje automático.
 
 La ingeniería de características requiere una combinación de conocimientos de dominio, intuición y experimentación. A menudo, es útil visualizar los datos y las relaciones entre las características para obtener ideas para la ingeniería de características.
+
+Ahora veamos como poner en practica la ingenieria de caracteristicas en un conjuntod e datos del mundo real.
+[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/7%29%20Ingenieria%20de%20Caracteristicas/Titanic%20-%20Machine%20Learning%20From%20Disaster)
