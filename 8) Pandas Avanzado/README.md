@@ -379,3 +379,9 @@ df['A'] = df['A'].astype('int8')
 print(df.memory_usage(deep=True))
 ```
 En este ejemplo, cambiamos el tipo de datos de la columna 'A' de int64 a int8, lo que reduce significativamente el uso de memoria de esa columna.
+
+### Actividad
+
+Ahora veamos como poner en practica en un conjunto de datos del mundo real.
+
+[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/blob/main/8%29%20Pandas%20Avanzado/Titanic%20-%20Machine%20Learning%20From%20Disaster/README.md)
