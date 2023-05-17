@@ -152,3 +152,22 @@ Existen varios modelos de aprendizaje automático, cada uno de los cuales es ade
 - **Redes Neuronales:** Este es un algoritmo que se inspira en el funcionamiento del cerebro humano y puede modelar relaciones complejas entre características. Las redes neuronales son muy potentes y se utilizan en una variedad de aplicaciones, desde la visión por computadora hasta el procesamiento del lenguaje natural.
 
 Cada uno de estos algoritmos tiene sus ventajas y desventajas, y la elección del algoritmo depende del problema específico que estés tratando de resolver. Además, la mayoría de estos algoritmos tienen hiperparámetros que debes ajustar para obtener el mejor rendimiento posible. El ajuste de hiperparámetros es un área en sí misma y existen varias técnicas para hacerlo de manera eficiente, como la búsqueda en cuadrícula y la búsqueda aleatoria.
+
+## Evaluación del modelo
+La evaluación del modelo es una parte crucial del proceso de aprendizaje automático. Una vez que hemos entrenado nuestro modelo, necesitamos evaluar cuán bien está realizando sus predicciones. Aquí hay algunos conceptos que necesitaremos entender:
+
+- **Métricas de evaluación:** Dependiendo del tipo de problema de aprendizaje automático que estemos tratando (es decir, clasificación, regresión, agrupación), utilizaremos diferentes métricas para evaluar la efectividad de nuestro modelo. Algunas métricas comunes incluyen precisión, recall, F1-score para problemas de clasificación; error cuadrático medio (MSE), error absoluto medio (MAE) para problemas de regresión.
+
+- **Validación cruzada:** La idea de la validación cruzada es dividir nuestro conjunto de datos en 'k' subconjuntos, y luego iterar 'k' veces el proceso de entrenamiento y evaluación, cada vez utilizando un subconjunto diferente para la evaluación y el resto para el entrenamiento. Esto nos proporciona una estimación más robusta de la capacidad de generalización del modelo.
+
+- **Sobreajuste y subajuste:** Cuando nuestro modelo es demasiado complejo para la cantidad de datos que tenemos, puede empezar a 'memorizar' los datos de entrenamiento, lo que resulta en un mal rendimiento en los datos no vistos. A esto se le llama sobreajuste. Por otro lado, si nuestro modelo es demasiado simple, puede no ser capaz de capturar todas las relaciones en los datos, lo que resulta en un rendimiento deficiente tanto en el conjunto de entrenamiento como en el de prueba. A esto se le llama subajuste. Necesitamos encontrar un buen equilibrio entre la complejidad del modelo y su capacidad para generalizar a partir de los datos no vistos.
+
+- **Ajuste de hiperparámetros:** Los hiperparámetros son los parámetros del algoritmo de aprendizaje automático que se establecen antes del entrenamiento. Estos pueden tener un gran impacto en el rendimiento del modelo y, a menudo, necesitan ser optimizados. Algunas técnicas comunes para la optimización de hiperparámetros incluyen la búsqueda en cuadrícula y la búsqueda aleatoria.
+
+Al final de esta semana, los estudiantes tendrán una sólida comprensión de los conceptos fundamentales del aprendizaje automático y estarán listos para aplicar estos conceptos en la práctica.
+
+## Actividad
+
+Apliquemos lo aprendido en la práctica usando el conjunto de datos del Titanic.
+
+[Ver Actividad](1234)
