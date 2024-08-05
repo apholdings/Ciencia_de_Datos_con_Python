@@ -1,68 +1,74 @@
 # Titanic - Machine Learning From Disaster
 
-## Actividad - Implementación de modelos básicos de aprendizaje automático en un conjunto de datos.
+## Actividad - Implementación de sobreajuste e infraajuste en conjunto de datos.
 
-Primero, importamos las librerías necesarias y cargamos los datos:
+### Sobreajuste
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
 
+# Cargar los datos del Titanic
+data = pd.read_csv('titanic.csv')
+
+# Preprocesamiento simple
+data['Age'].fillna(data['Age'].mean(), inplace=True)
+data['Embarked'].fillna(data['Embarked'].mode()[0], inplace=True)
+data['Sex'] = data['Sex'].map({'male': 0, 'female': 1})
+
+# Selección de características
+features = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare']
+X = data[features]
+y = data['Survived']
+
+# Dividir los datos en conjuntos de entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Entrenar un árbol de decisión muy profundo (alta varianza)
+model = DecisionTreeClassifier(max_depth=10)
+model.fit(X_train, y_train)
+
+# Evaluar el modelo
+train_accuracy = accuracy_score(y_train, model.predict(X_train))
+test_accuracy = accuracy_score(y_test, model.predict(X_test))
+
+print(f'Exactitud en entrenamiento: {train_accuracy}')
+print(f'Exactitud en prueba: {test_accuracy}')
+```
+
+
+### Infraajuste
 ```python
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.metrics import accuracy_score
 
-# Cargamos el conjunto de datos
-df = pd.read_csv('train.csv')
+# Cargar los datos del Titanic
+data = pd.read_csv('titanic.csv')
 
-# Mostramos las primeras 5 filas del conjunto de datos
-print(df.head())
-```
+# Preprocesamiento simple
+data['Age'].fillna(data['Age'].mean(), inplace=True)
+data['Embarked'].fillna(data['Embarked'].mode()[0], inplace=True)
+data['Sex'] = data['Sex'].map({'male': 0, 'female': 1})
 
-A continuación, realizamos algunas operaciones de preprocesamiento de datos. En este caso, vamos a eliminar las columnas que no vamos a utilizar, a tratar los datos faltantes y a codificar las variables categóricas:
+# Selección de características limitadas
+features = ['Pclass', 'Sex']
+X = data[features]
+y = data['Survived']
 
-```python
-# Eliminamos las columnas que no vamos a utilizar
-df = df.drop(['PassengerId', 'Name', 'Ticket', 'Cabin'], axis=1)
-
-# Tratamos los datos faltantes
-df['Age'] = df['Age'].fillna(df['Age'].mean())
-df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
-
-# Codificamos las variables categóricas
-df = pd.get_dummies(df, drop_first=True)
-```
-
-Después de eso, dividimos los datos en un conjunto de entrenamiento y un conjunto de prueba:
-
-```python
-# Definimos la variable objetivo y las variables predictoras
-X = df.drop('Survived', axis=1)
-y = df['Survived']
-
-# Dividimos los datos en un conjunto de entrenamiento y un conjunto de prueba
+# Dividir los datos en conjuntos de entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-```
 
-Ahora estamos listos para entrenar nuestro modelo. En este caso, vamos a utilizar la regresión logística:
-
-```python
-# Creamos el modelo
-model = LogisticRegression(max_iter=1000)
-
-# Entrenamos el modelo
+# Entrenar una regresión logística simple (alta sesgo)
+model = LogisticRegression()
 model.fit(X_train, y_train)
+
+# Evaluar el modelo
+train_accuracy = accuracy_score(y_train, model.predict(X_train))
+test_accuracy = accuracy_score(y_test, model.predict(X_test))
+
+print(f'Exactitud en entrenamiento: {train_accuracy}')
+print(f'Exactitud en prueba: {test_accuracy}')
 ```
-
-Finalmente, evaluamos la precisión del modelo en el conjunto de prueba:
-
-```python
-# Hacemos predicciones en el conjunto de prueba
-y_pred = model.predict(X_test)
-
-# Evaluamos la precisión del modelo
-print(accuracy_score(y_test, y_pred))
-print(confusion_matrix(y_test, y_pred))
-print(classification_report(y_test, y_pred))
-```
-
-Ahora podemos seguir practicando con el conjunuto de datos de House Prices.
-[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/blob/main/9%29%20Introduccion%20a%20Aprendizaje%20Automatico/House%20Prices%20-%20Advanced%20Regression%20Techniques/README.md)
