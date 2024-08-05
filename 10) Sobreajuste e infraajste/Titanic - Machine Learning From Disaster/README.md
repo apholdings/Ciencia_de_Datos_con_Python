@@ -74,4 +74,5 @@ print(f'Exactitud en prueba: {test_accuracy}')
 ```
 
 Ahora podemos seguir practicando con el conjunuto de datos de House Prices.
-[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/10%25%29%20Sobreajuste%20e%20infraajuste/House%20Prices%20-%20Advanced%20Regression%20Techniques)
+[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/tree/main/10%29%20Sobreajuste%20e%20infraajste/House%20Prices%20-%20Advanced%20Regression%20Techniques)
+
