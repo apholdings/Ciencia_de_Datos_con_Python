@@ -28,7 +28,7 @@ Esperamos que estén tan emocionados como nosotros por este viaje. ¡Empecemos a
 8. [Pandas Avanzado](8%29%20Pandas%20Avanzado/README.md)
 9. [Introducción al aprendizaje automático](9%29%20Introduccion%20a%20Aprendizaje%20Automatico/README.md)
 10. [Sobreajuste e infraajuste](10%29%20Sobreajuste%20e%20infraajste/README.md)
-11. Scikit-Learn
+11. [Scikit-Learn](11%29%20Scikit-Learn/README.md)
 12. Aprendizaje supervisado
 13. Aprendizaje no supervisado
 14. Métricas de evaluación
