@@ -72,3 +72,6 @@ test_accuracy = accuracy_score(y_test, model.predict(X_test))
 print(f'Exactitud en entrenamiento: {train_accuracy}')
 print(f'Exactitud en prueba: {test_accuracy}')
 ```
+
+Ahora podemos seguir practicando con el conjunuto de datos de House Prices.
+[Ver Actividad](https://github.com/apholdings/Ciencia_de_Datos_con_Python/blob/main/9%29%20Sobreajuste%20e%20infraajste/House%20Prices%20-%20Advanced%20Regression%20Techniques/README.md)
